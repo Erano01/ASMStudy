@@ -12,7 +12,7 @@ Bu basit x86-64 assembly programı Windows'ta "Merhaba Dünya!" mesajını ekran
 
 `build.bat` dosyasını çalıştırın:
 ```batch
-build.bat
+.\build.bat
 ```
 
 Veya manuel olarak:
@@ -24,7 +24,7 @@ link hello.obj /SUBSYSTEM:CONSOLE /ENTRY:main /OUT:hello.exe legacy_stdio_defini
 ## Çalıştırma
 
 ```batch
-hello.exe
+.\hello.exe
 ```
 
 ## Program Açıklaması

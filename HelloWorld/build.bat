@@ -1,4 +1,16 @@
 @echo off
+
+REM Visual Studio x64 ortamını kur
+if not defined VSCMD_VER (
+    echo Visual Studio x64 ortami yukleniyor...
+    call "C:\Development Environments\Visual Studio 26\Product\VC\Auxiliary\Build\vcvars64.bat" >nul 2>&1
+    if errorlevel 1 (
+        echo HATA: Visual Studio ortami yuklenemedi!
+        pause
+        exit /b 1
+    )
+)
+
 echo Assembly programi derleniyor (MASM x64)...
 
 REM Aşağıda kod derleniyor /c ile. /Zi hata ayıklama bilgisi ekleniyor.
