@@ -1,0 +1,1 @@
+;Bu kodda 16 bitlik genel amaçlı CPU registerlarının temel kullanımı gösterilmektedir.
