@@ -10,24 +10,24 @@
     EXTERN printf:PROC
     EXTERN ExitProcess:PROC
     
-main PROC
-    ; Stack hizalama (Windows x64 calling convention)
-    push rbp
-    mov rbp, rsp
-    sub rsp, 32         ; Shadow space için 32 byte ayır
-    
-    ; printf çağrısı
-    lea rcx, message    ; İlk parametre (format string) RCX'e
-    call printf
-    
-    ; Programdan çık
-    xor ecx, ecx        ; Çıkış kodu 0
-    call ExitProcess
-    
-    ; Temizlik (buraya asla gelmeyecek ama yine de)
-    add rsp, 32
-    pop rbp
-    ret
-main ENDP
+    main PROC
+        ; Stack hizalama (Windows x64 calling convention)
+        push rbp
+        mov rbp, rsp
+        sub rsp, 32         ; Shadow space için 32 byte ayır
+        
+        ; printf çağrısı
+        lea rcx, message    ; İlk parametre (format string) RCX'e
+        call printf
+        
+        ; Programdan çık
+        xor ecx, ecx        ; Çıkış kodu 0
+        call ExitProcess
+        
+        ; Temizlik (buraya asla gelmeyecek ama yine de)
+        add rsp, 32
+        pop rbp
+        ret
+    main ENDP
 
 END
