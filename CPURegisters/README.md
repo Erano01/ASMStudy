@@ -1,20 +1,57 @@
 # Register Nedir
 Register, CPU’nun içinde bulunan, sayıları çok az ama erişim süresi tek clock cycle olan küçük depolama alanlarıdır.<br>
-Hız sıralaması (yaklaşık): <br>
-Register > L1 Cache > L2 Cache > L3 Cache > RAM > Disk
-<br>
+Hız sıralaması (yaklaşık):<br>
+Register > L1 Cache > L2 Cache > L3 Cache > RAM > Disk<br>
+
 Bu yüzden compiler’lar ve assembly kodu yazanlar register kullanımına obsesiftir.
-<br>
+
 Register’lar üç ana amaçla kullanılır:<br>
 1. Veri tutmak (operandlar, geçici değerler)<br>
 2. Adres tutmak (memory pointer’ları)<br>
 3. CPU durumunu kontrol etmek (flag’ler, instruction pointer)<br>
 
+## 8 Bit(Low) Registers
+8 Bit (Low) Registers:<br>
+Bunlar 16-bit register’ın low 8 bitidir.<br>
+• AL → AX’in Low 8 biti<br>
+• BL → BX’in Low 8 biti<br>
+• CL → CX’in Low 8 biti<br>
+• DL → DX’in Low 8 biti<br>
 
-// 8 bit (low), 8 bit(high), 16 bit registerları ayırmadık o şekilde ayırırsak daha da iyi olur.<br>
-// Aşağı doğru 8 bit (low), 8 bit(high), 16 bit, 32 bit, 64 bit registerlar diye ayıralım. 
+x64 ile gelen 8 Bit (Low) Registers:<br>
+• SIL → RSI’nin Low 8 biti<br>
+• DIL → RDI’nin Low 8 biti<br>
+• BPL → RBP’nin Low 8 biti<br>
+• SPL → RSP’nin Low 8 biti<br>
 
-## 32 Bit - x86 programs
+Yeni GPR’lerin alt 8 bitleri:<br>
+• R8B, R9B, R10B, R11B, R12B, R13B, R14B, R15B<br>
+
+## 8 Bit(High) Registers
+Bunlar 16-bit register’ın high 8 bitidir.<br>
+• AH → AX’in high 8 biti<br>
+• BH → BX’in high 8 biti<br>
+• CH → CX’in high 8 biti<br>
+• DH → DX’in high 8 biti<br>
+
+## 16 Bit Registers
+Bunlar orijinal 8086 register’larıdır ve hâlâ x86-64’te mevcuttur.<br>
+• AX (Accumulator) -> Aritmetik işlemlerde varsayılan register<br>
+• BX (Base) -> Tarihsel olarak base address tutmak için<br>
+• CX (Counter) -> Loop ve tekrar işlemleri için sayaç<br>
+• DX (Data) -> Çarpma/bölme işlemlerinde üst veri<br>
+
+Index ve stack register’ları:<br>
+• SI (Source Index) → Memory kaynak adresi<br>
+• DI (Destination Index) → Memory hedef adresi<br>
+• BP (Base Pointer) → Stack frame referansı<br>
+• SP (Stack Pointer) → Stack’in tepe adresi<br>
+
+x64 ile gelen 16-bit alt register’lar:<br>
+•  R8W, R9W, R10W, R11W, R12W, R13W, R14W, R15W<br>
+
+
+## 32 Bit Registers
 • EAX (Accumulator Register) -> Aritmetik ve mantıksal işlemlerde varsayılan register’dır. Fonksiyon dönüş değeri bunun üzerinden verilir.<br>
 • EBX (Base Register) -> Tarihsel olarak base address tutmak için kullanılır, Calling convention’larda genelde callee-saved’dir, Uzun ömürlü değişkenleri tutmak için tercih edilir.<br>
 • ECX (Counter Register)-> Loop ve tekrar işlemlerinde kullanılır, rep movs, rep stos gibi string talimatlarında sayaçtır. Bazı calling convention’larda argüman register’ıdır (Windows x64)<br>
@@ -40,7 +77,7 @@ Register’lar üç ana amaçla kullanılır:<br>
 • EIP (Instruction Pointer) -> CPU’nun bir sonraki çalıştıracağı instruction’ın adresini tutar. Doğrudan yazılamaz, sadece jump / call / ret ile değişir.<br>
 • EFLAGS -> CPU’nun durum bilgisini tutar. Aritmetik ve karşılaştırma sonuçlarına göre branch kararları buradan verilir. (ZF, CF, OF, SF, IF gibi flag’leri içerir)<br>
 
-## 64 Bit - x64 programs
+## 64 Bit Registers
 • RAX (Accumulator Register) -> Aritmetik ve mantıksal işlemlerde varsayılan register’dır. Fonksiyon dönüş değeri bunun üzerinden verilir.<br>
 • RBX (Base Register)-> Tarihsel olarak base address tutmak için kullanılır, Calling convention’larda genelde callee-saved’dir, Uzun ömürlü değişkenleri tutmak için tercih edilir.<br>
 • RCX (Counter Register)->  Loop ve tekrar işlemlerinde kullanılır, rep movs, rep stos gibi string talimatlarında sayaçtır. Bazı calling convention’larda argüman register’ıdır (Windows x64)<br>
@@ -70,7 +107,7 @@ Register’lar üç ana amaçla kullanılır:<br>
 ## SIMD / Vector Register'ları
 
 // x86 / x64:<br>
-• XMM0–XMM15 ->128-bit SIMD register’larıdır (SSE). Float, double ve packed integer işlemlerinde kullanılır.
+• XMM0–XMM15 ->128-bit SIMD register’larıdır (SSE). Float, double ve packed integer işlemlerinde kullanılır.<br>
 
 // x64 (genişletilmiş):<br>
 • YMM0–YMM15 ->256-bit SIMD register’larıdır (AVX).<br>
