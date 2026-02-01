@@ -1,6 +1,8 @@
 # x86 / x86-64 Flags
+Assembly’de flag’lar, CPU’nun status / condition register’ı içinde bulunan ve son yapılan işlemin sonucuna dair durumu gösteren 1-bitlik özel bayraklardır.<br>
+x86 mimarisinde bu register FLAGS / EFLAGS / RFLAGS olarak geçer.<br>
+ALU bir işlem yapar → sonuçla ilgili bilgileri flag’lara yazar → branch / conditional instruction’lar bu flag’lara bakar.<br>
 x86 / x86-64 mimarisinde flag’lar 3 ana kategoriye ayrılır. Bu ayrım ne amaçla kullanıldıklarına göredir.
-<br>
 
 ## 1-) Status (Condition) Flags
 • ALU işlemlerinin sonucunu temsil eder<br>
